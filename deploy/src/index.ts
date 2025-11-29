@@ -1,25 +1,21 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
-import { existsSync, copyFileSync } from "fs";
+import { existsSync } from "fs";
 import { homedir, platform } from "os";
 import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import chalk from "chalk";
 import { memoize } from "./lib.js";
 
-interface ConfigFile {
-  source: string;
-  target: string;
-  description: string;
-}
-
 const getHomeDir = memoize(() => homedir());
 const getIsWindows = memoize(() => platform() === "win32");
 const getRepoRoot = memoize(() => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
-  return resolve(__dirname, "../../..");
+  const repoRoot = resolve(__dirname, "../..");
+  console.log("repo root", __filename, __dirname, repoRoot);
+  return repoRoot;
 });
 
 /**
