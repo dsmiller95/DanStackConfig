@@ -59,7 +59,7 @@ const applyGitConfig = (): void => {
     return;
   }
 
-  const gitAliasesScript = join(getRepoRoot(), "git-aliases.sh");
+  const gitAliasesScript = join(getRepoRoot(), "config", "git-aliases.sh");
 
   if (!existsSync(gitAliasesScript)) {
     console.log(
