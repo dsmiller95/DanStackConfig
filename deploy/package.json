@@ -1,0 +1,32 @@
+{
+  "name": "danstack-config-deploy",
+  "version": "1.0.0",
+  "description": "System configuration deployment tool for DanStack",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js",
+    "watch": "tsc --watch",
+    "deploy": "npm run build && npm run start",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "configuration",
+    "deployment",
+    "automation",
+    "git",
+    "setup"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
+}
